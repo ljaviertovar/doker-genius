@@ -26,15 +26,7 @@ export default function MainLayout({ children, imageUrl, pageDescription, title 
 
 			<Header />
 
-			<main
-				style={{
-					margin: "80px auto",
-					maxWidth: "1440px",
-					padding: "0px 30px",
-				}}
-			>
-				{children}
-			</main>
+			<main className='w-10/12 m-auto'>{children}</main>
 
 			<Footer />
 		</>

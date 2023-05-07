@@ -8,11 +8,15 @@ module.exports = {
   theme: {
     extend: {
       textColor: ['placeholder'],
-      backgroundColor: {
-        "custom-gray-bg": "#F8F8F8",
-        "custom-gray": "#171717",
-        "custom-dark-gray": "#1D1D1D",
-        "frame-gray": "EEEEEE",
+      colors: {
+        "custom-dark": {
+          "950": "#030306",
+          "900": "#0d0c18",
+          "850": "#181828",
+          "800": "#242535",
+          "500": "#232325",
+          "50": "#E0E0E0"
+        }
       },
       borderColor: {
         "custom-gray": "#171717",

@@ -17,49 +17,46 @@ export default function HomePage() {
 
 	return (
 		<MainLayout title={"Doker Genius"} pageDescription={"Dockerfiles Generator"}>
-			<div className='flex flex-col items-center justify-center h-screen'>
+			<div className='w-full mb-12 text-center'>
 				<h1 className='text-4xl font-bold mb-4'>Doker Genius</h1>
+				<h2 className='text-2xl font-bold mb-4'>Dockerfile validator and generator</h2>
+			</div>
+			<div className='flex gap-6 w-full'>
+				<div className='w-2/6 dark:bg-custom-dark-900 p-4 rounded-lg border border-custom-dark-800'>
+					<form onSubmit={handleSubmit}>
+						<label className='text-lg font-semibold mb-2'>Enter the instructions for your Dockerfile:</label>
+						<textarea
+							className={`border border-custom-dark-800 appearance-none rounded-lg w-full p-4 bg-custom-gray-bg dark:bg-custom-dark-950 text-gray-700 dark:text-custom-dark-50 leading-tight `}
+							// id='inputText'
+							rows={3}
+							placeholder='e.g. Write a dockerfile to dockerize a React app using npm start.'
+							name='prompt'
+							// onChange={ev => setPrompt(ev.target.value)}
+							// onKeyDown={ev => {
+							// 	if (ev.key === "Enter") {
+							// 		console.log(ev.target)
+							// 		handleSubmit(ev)
+							// 	}
+							// }}
+							required
+						/>
 
-				<div className='flex gap-6 w-full'>
-					<div className='w-2/6'>
-						<form onSubmit={handleSubmit}>
-							<label className='text-lg font-semibold mb-2'>Enter the instructions for your Dockerfile:</label>
+						{error && <div>Error</div>}
+						<button
+							className='dark:bg-custom-dark-950 border border-custom-dark-800 hover:border-custom-dark-50 text-custom-dark-50 font-semibold py-2 px-4 rounded-lg'
+							type='submit'
+							disabled={generating}
+						>
+							{generating ? "Generating..." : "Generate Dockerfile"}
+						</button>
+					</form>
+				</div>
 
-							{/* <textarea
-					className={`appearance-none border-0 rounded-lg w-full py-2 px-3 bg-custom-gray-bg dark:bg-custom-dark-gray text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline ${
-						isThemeDark ? "placeholder-dark" : ""
-					}`} */}
-							<textarea
-								className={`appearance-none border-0 rounded-lg w-full py-2 px-3 bg-custom-gray-bg dark:bg-custom-dark-gray text-gray-700 dark:text-white leading-tight focus:outline-none focus:shadow-outline`}
-								id='inputText'
-								rows={3}
-								placeholder='e.g. Write a dockerfile to dockerize a React app using npm start.'
-								// value={prompt}
-								name='prompt'
-								// onChange={ev => setPrompt(ev.target.value)}
-								// onKeyDown={ev => {
-								// 	if (ev.key === "Enter") {
-								// 		console.log(ev.target)
-								// 		handleSubmit(ev)
-								// 	}
-								// }}
-								required
-							/>
-
-							{error && <div>Error</div>}
-							<button
-								className='bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg'
-								type='submit'
-								disabled={generating}
-							>
-								{generating ? "Generating..." : "Generate Dockerfile"}
-							</button>
-						</form>
-					</div>
-
-					<div className='w-4/6'>
-						<CodeDockerFile textCode={(dockerfile as string) ?? dockerfilePlaceholder} />
-					</div>
+				<div className='w-4/6 dark:bg-custom-dark-900 p-4 rounded-lg border border-custom-dark-800'>
+					<button className='dark:bg-custom-dark-950 border border-custom-dark-800 hover:border-custom-dark-50 text-custom-dark-50 font-semibold py-2 px-4 rounded-lg'>
+						Copy
+					</button>
+					<CodeDockerFile textCode={(dockerfile as string) ?? dockerfilePlaceholder} />
 				</div>
 			</div>
 		</MainLayout>

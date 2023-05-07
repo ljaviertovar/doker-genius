@@ -4,7 +4,7 @@ import { useTheme } from "next-themes"
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-export default function ThemeButton({ className }: { className?: string }) {
+export default function ThemeButton() {
 	const [mounted, setMounted] = useState(false)
 
 	const { systemTheme, theme, setTheme } = useTheme()
@@ -17,7 +17,7 @@ export default function ThemeButton({ className }: { className?: string }) {
 	if (!mounted) return null
 
 	return (
-		<button type='button' onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")} className={className}>
+		<button type='button' onClick={() => setTheme(currentTheme === "dark" ? "light" : "dark")}>
 			{currentTheme === "dark" ? (
 				<FontAwesomeIcon icon={faSun} className='w-4 h-4 text-gray-400' />
 			) : (

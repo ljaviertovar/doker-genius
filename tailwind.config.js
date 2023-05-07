@@ -7,12 +7,20 @@ module.exports = {
   ],
   theme: {
     extend: {
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic':
-          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      textColor: ['placeholder'],
+      backgroundColor: {
+        "custom-gray-bg": "#F8F8F8",
+        "custom-gray": "#171717",
+        "custom-dark-gray": "#1D1D1D",
+        "frame-gray": "EEEEEE",
       },
+      borderColor: {
+        "custom-gray": "#171717",
+      },
+      placeholderColor: {
+        'dark': '#FFFFFF',
+      }
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 }

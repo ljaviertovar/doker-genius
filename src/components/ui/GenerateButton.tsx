@@ -17,7 +17,7 @@ export default function GenerateButton({ generating }: Props) {
 	return (
 		<button
 			type='submit'
-			className='p-px rounded-lg bg-gradient-to-r from-rose-400 via-fuchsia-500 to-indigo-500'
+			className='p-px rounded-lg bg-gradient-to-r from-violet-600 to-blue-600'
 			disabled={generating}
 		>
 			<div

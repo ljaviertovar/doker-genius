@@ -22,6 +22,7 @@ export default function CodeDockerFile({ textCode }: Props) {
 					height: "auto",
 					overflow: "visible",
 					wordWrap: "break-word",
+					paddingRight: "2rem",
 					// color: "inherit",
 					// backgroundColor: isThemeDark ? "#1D1D1D" : "#F8F8F8",
 					// backgroundColor: "#1D1D1D",

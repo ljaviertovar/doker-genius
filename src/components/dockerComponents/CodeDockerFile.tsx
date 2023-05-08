@@ -21,7 +21,7 @@ export default function CodeDockerFile({ textCode }: Props) {
 					overflow: "visible",
 					wordWrap: "break-word",
 					paddingRight: "3rem",
-					borderRadius: "0.5rem",
+					borderRadius: "0.3rem",
 					padding: "1rem",
 				}}
 				lineProps={{ style: { whiteSpace: "pre-wrap" } }}

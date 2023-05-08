@@ -17,14 +17,14 @@ export default function GenerateButton({ generating }: Props) {
 	return (
 		<button
 			type='submit'
-			className='p-px rounded-lg bg-gradient-to-r from-violet-600 to-blue-600'
+			className='p-px rounded-md bg-gradient-to-r from-violet-600 to-blue-600'
 			disabled={generating}
 		>
 			<div
 				className={`flex items-center gap-2 dark: text-custom-dark-50
        dark:hover:${!generating && "text-white"} ${
 					generating && "opacity-60"
-				} px-4 py-2 font-semibold rounded-lg bg-custom-dark-950`}
+				} px-4 py-2 font-semibold rounded-md bg-custom-dark-950`}
 			>
 				{!generating && <FontAwesomeIcon icon={faCubesStacked} />}
 				{generating ? "Generating" : "Generate"}

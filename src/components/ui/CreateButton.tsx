@@ -12,9 +12,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 export default function CreateButton() {
 	return (
 		<div className='flex flex-col relative'>
-			<button type='button' className='p-px rounded-lg bg-gradient-to-r from-blue-600 to-violet-600' disabled>
+			<button type='button' className='p-px rounded-md bg-gradient-to-r from-blue-600 to-violet-600' disabled>
 				<div
-					className={`flex items-center gap-2 dark:text-custom-dark-50 dark::hover:text-white px-4 py-2 font-semibold rounded-lg bg-custom-dark-950 opacity-60`}
+					className={`flex items-center gap-2 dark:text-custom-dark-50 dark::hover:text-white px-4 py-2 font-semibold rounded-md bg-custom-dark-950 opacity-60`}
 				>
 					<FontAwesomeIcon icon={faCubesStacked} /> Create
 				</div>

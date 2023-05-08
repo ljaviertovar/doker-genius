@@ -1,7 +1,7 @@
 import MainLayout from "@/components/layouts/MainLayout"
 import useDockerfileGenerator from "../hooks/useDockerfileGenerator"
 import { dockerfilePlaceholder, inputPlaceholder } from "@/data/placeholders"
-import CodeDockerFile from "@/components/ui/CodeDockerFile"
+import CodeDockerFile from "@/components/dockerComponents/CodeDockerFile"
 import GenerateButton from "@/components/ui/GenerateButton"
 import CopyButton from "@/components/ui/CopyButton"
 import CreateButton from "../components/ui/CreateButton"
@@ -20,10 +20,6 @@ export default function HomePage() {
 
 	return (
 		<MainLayout title={"Doker Genius"} pageDescription={"Dockerfiles Generator"}>
-			<div className='w-full mb-12 text-center'>
-				<h1 className='text-4xl font-bold mb-2 font-mono'>DokerGenius</h1>
-				<h2 className='text-2xl font-semibold text-custom-dark-50 '>Dockerfile validator and generator</h2>
-			</div>
 			<div className='flex gap-6 w-full'>
 				<div className='w-2/6 dark:bg-custom-dark-900 p-4 rounded-lg border border-custom-dark-800'>
 					<form onSubmit={handleSubmit} className='mb-8 text-center'>

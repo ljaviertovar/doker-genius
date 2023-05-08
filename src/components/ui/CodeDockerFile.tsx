@@ -11,21 +11,16 @@ export default function CodeDockerFile({ textCode }: Props) {
 		<div>
 			<SyntaxHighlighter
 				language='bash'
-				// style={isThemeDark ? dracula : vs}
 				style={gradientDark}
 				wrapLines={true}
 				showLineNumbers={false}
-				// lineNumberStyle={{ color: isThemeDark ? "gray" : "#ccc" }}
 				lineNumberStyle={{ color: "#ccc" }}
 				customStyle={{
 					maxHeight: "none",
 					height: "auto",
 					overflow: "visible",
 					wordWrap: "break-word",
-					paddingRight: "2rem",
-					// color: "inherit",
-					// backgroundColor: isThemeDark ? "#1D1D1D" : "#F8F8F8",
-					// backgroundColor: "#1D1D1D",
+					paddingRight: "2.5rem",
 					borderRadius: "0.5rem",
 					padding: "1rem",
 				}}

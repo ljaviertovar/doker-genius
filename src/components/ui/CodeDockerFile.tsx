@@ -20,7 +20,7 @@ export default function CodeDockerFile({ textCode }: Props) {
 					height: "auto",
 					overflow: "visible",
 					wordWrap: "break-word",
-					paddingRight: "2.5rem",
+					paddingRight: "3rem",
 					borderRadius: "0.5rem",
 					padding: "1rem",
 				}}

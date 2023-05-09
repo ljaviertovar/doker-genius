@@ -52,7 +52,7 @@ export default function HomePage() {
 
 				<section className='w-4/6 dark:bg-custom-dark-900 p-4 rounded-md border border-custom-dark-800 relative'>
 					<div className='absolute right-8 top-8'>
-						<CopyButton />
+						<CopyButton textCode={(dockerfile as string) ?? dockerfilePlaceholder} />
 					</div>
 					<CodeDockerFile textCode={(dockerfile as string) ?? dockerfilePlaceholder} />
 				</section>

@@ -9,7 +9,7 @@ export default function RRSS() {
 					href='https://docs.docker.com/engine/reference/builder/'
 					rel='noopener noreferrer'
 					target='_blank'
-					title='Twitter'
+					title='Docker'
 					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-100 hover:text-white font-semibold py-1 px-2 rounded-md'
 				>
 					<FontAwesomeIcon icon={faDocker} /> Docs

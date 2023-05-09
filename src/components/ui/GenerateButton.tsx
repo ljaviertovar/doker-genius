@@ -21,10 +21,8 @@ export default function GenerateButton({ generating }: Props) {
 			disabled={generating}
 		>
 			<div
-				className={`flex items-center gap-2 dark: text-custom-dark-50
-       dark:hover:${!generating && "text-white"} ${
-					generating && "opacity-60"
-				} px-4 py-2 font-semibold rounded-md bg-custom-dark-950`}
+				className={`flex items-center gap-2 dark:text-custom-dark-50
+       dark:hover:text-white ${generating && "opacity-60"} px-4 py-2 font-semibold rounded-md bg-custom-dark-950`}
 			>
 				{!generating && <FontAwesomeIcon icon={faCubesStacked} />}
 				{generating ? "Generating" : "Generate"}

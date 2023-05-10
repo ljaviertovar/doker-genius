@@ -8,10 +8,10 @@ type FetchState<T> = {
 	dockerfile: T | null
 }
 
-export default function useDockerfileGenerator<T>(): FetchState<T> {
+export default function useDockerfileGenerator<T>(): FetchState<T | string> {
 	const [generating, setGenerating] = useState(false)
 	const [error, setError] = useState<string | null>(null)
-	const [dockerfile, setDockerfile] = useState<T | null>(null)
+	const [dockerfile, setDockerfile] = useState<T | null | string>(null)
 
 	const generate = async (prompt: string) => {
 		try {
@@ -27,7 +27,8 @@ export default function useDockerfileGenerator<T>(): FetchState<T> {
 			})
 
 			if (status === 200) {
-				setDockerfile(data)
+				setDockerfile("")
+				setDockerfile(data.dockerfile)
 			} else {
 				setError("Error generating Dockerfile")
 			}

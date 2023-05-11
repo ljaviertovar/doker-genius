@@ -1,16 +1,10 @@
-import { useEffect, useState } from "react"
-
+import { useGenerateStore } from "../store/useGenerateStore"
 interface Props {
 	setPrompt: (value: string) => void
 }
 
 export default function HistoryList({ setPrompt }: Props) {
-	const [prompts, setPrompts] = useState<string[]>([])
-
-	useEffect(() => {
-		const localPrompts = JSON.parse(localStorage.getItem("prompts") || '["lalala"]')
-		setPrompts(localPrompts)
-	}, [])
+	const prompts = useGenerateStore(state => state.prompts)
 
 	return (
 		<div className='p-4 rounded-md  dark:bg-custom-dark-900 border border-custom-dark-800 h-fit'>

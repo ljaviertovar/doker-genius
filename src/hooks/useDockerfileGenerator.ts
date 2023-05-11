@@ -1,6 +1,8 @@
 import { useState } from "react"
 import axios from "axios"
 
+import { useGenerateStore } from "../store/useGenerateStore"
+
 type FetchState<T> = {
 	generate: (value: string) => void
 	generating: boolean
@@ -12,6 +14,8 @@ export default function useDockerfileGenerator<T>(): FetchState<T | string> {
 	const [generating, setGenerating] = useState(false)
 	const [error, setError] = useState<string | null>(null)
 	const [dockerfile, setDockerfile] = useState<T | null | string>(null)
+
+	const setPrompts = useGenerateStore(state => state.setPrompts)
 
 	const generate = async (prompt: string) => {
 		try {
@@ -31,9 +35,11 @@ export default function useDockerfileGenerator<T>(): FetchState<T | string> {
 				setTimeout(() => {
 					setDockerfile(data.dockerfile)
 
-					if (data.message !== "ok") {
-						const prompts = JSON.parse(localStorage.getItem("prompts") || "[]")
-						window.localStorage.setItem("prompts", JSON.stringify([...prompts, prompt]))
+					if (data.message === "ok") {
+						// const prompts = JSON.parse(localStorage.getItem("prompts") || "[]")
+						// window.localStorage.setItem("prompts", JSON.stringify([...prompts, prompt]))
+
+						setPrompts(prompt)
 					}
 				}, 1000)
 			} else {

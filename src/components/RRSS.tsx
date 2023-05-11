@@ -10,7 +10,7 @@ export default function RRSS() {
 					rel='noopener noreferrer'
 					target='_blank'
 					title='Docker'
-					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-100 hover:text-white font-semibold py-1 px-2 rounded-md'
+					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-150 hover:text-white font-semibold py-1 px-2 rounded-md'
 				>
 					<FontAwesomeIcon icon={faDocker} /> Docs
 				</a>
@@ -21,7 +21,7 @@ export default function RRSS() {
 					rel='noopener noreferrer'
 					target='_blank'
 					title='Twitter'
-					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-100 hover:text-white font-semibold py-1 px-2 rounded-md'
+					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-150 hover:text-white font-semibold py-1 px-2 rounded-md'
 				>
 					<FontAwesomeIcon icon={faTwitter} />
 				</a>
@@ -30,7 +30,7 @@ export default function RRSS() {
 					rel='noopener noreferrer'
 					target='_blank'
 					title='Repository GitHub'
-					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-100 hover:text-white font-semibold py-1 px-2 rounded-md'
+					className='text-sm dark:bg-custom-dark-950 hover:border-white text-custom-dark-150 hover:text-white font-semibold py-1 px-2 rounded-md'
 				>
 					<FontAwesomeIcon icon={faGithub} size='lg' /> Star on GitHub
 				</a>

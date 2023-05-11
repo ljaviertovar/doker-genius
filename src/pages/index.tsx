@@ -5,14 +5,11 @@ import CodeDockerFile from "@/components/dockerComponents/CodeDockerFile"
 import GenerateButton from "@/components/ui/GenerateButton"
 import CopyButton from "@/components/ui/CopyButton"
 import CreateButton from "@/components/ui/CreateButton"
-import RRSS from "@/components/RRSS"
 
 import useDockerfileGenerator from "../hooks/useDockerfileGenerator"
 
 import { dockerfilePlaceholder, inputPlaceholder } from "@/data/placeholders"
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faRemove, faTrash } from "@fortawesome/free-solid-svg-icons"
+import HistoryList from "@/components/HistoryList"
 
 export default function HomePage() {
 	const [prompt, setPrompt] = useState("")
@@ -32,15 +29,15 @@ export default function HomePage() {
 	return (
 		<MainLayout title={"Doker Genius"} pageDescription={"Dockerfiles Generator"}>
 			<div className='flex gap-6 w-full'>
-				<section className='w-2/6  '>
-					<main className='p-4 rounded-md  dark:bg-custom-dark-900 border border-custom-dark-800 h-fit'>
+				<section className='w-2/6'>
+					<div className='p-4 rounded-md  dark:bg-custom-dark-900 border border-custom-dark-800 h-fit mb-6'>
 						<form onSubmit={handleSubmit}>
 							<label className='text-md text-left text-custom-dark-50 block mb-2' htmlFor='prompt'>
 								Enter the prompt for your Dockerfile:
 							</label>
 
 							<textarea
-								className={` text-md border border-custom-dark-800 appearance-none rounded-md w-full p-4 bg-custom-gray-bg dark:bg-custom-dark-950 text-gray-700 dark:text-custom-dark-50 leading-tight mb-2 mt-2`}
+								className={`text-md border border-custom-dark-800 appearance-none rounded-md w-full p-4 bg-custom-gray-bg dark:bg-custom-dark-950 text-gray-700 dark:text-custom-dark-50 leading-tight mb-2 mt-2`}
 								onChange={handleChange}
 								rows={6}
 								placeholder={inputPlaceholder}
@@ -57,10 +54,8 @@ export default function HomePage() {
 								<GenerateButton generating={generating} />
 							</div>
 						</form>
-					</main>
-					<footer className='my-8'>
-						<RRSS />
-					</footer>
+					</div>
+					<HistoryList setPrompt={setPrompt} />
 				</section>
 
 				<section className='w-4/6 dark:bg-custom-dark-900 p-4 rounded-md border border-custom-dark-800 relative h-fit'>

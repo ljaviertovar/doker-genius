@@ -4,7 +4,7 @@ import RRSS from "../RRSS"
 
 export default function Header() {
 	return (
-		<header className='text-center p-4 mb-8'>
+		<header className='text-center py-4 mb-8 w-10/12 m-auto'>
 			{/* <ThemeButton /> */}
 
 			<RRSS />

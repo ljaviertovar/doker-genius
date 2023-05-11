@@ -36,12 +36,9 @@ export default function useDockerfileGenerator<T>(): FetchState<T | string> {
 					setDockerfile(data.dockerfile)
 
 					if (data.message === "ok") {
-						// const prompts = JSON.parse(localStorage.getItem("prompts") || "[]")
-						// window.localStorage.setItem("prompts", JSON.stringify([...prompts, prompt]))
-
 						setPrompts(prompt)
 					}
-				}, 1000)
+				}, 500)
 			} else {
 				setError("Error generating Dockerfile")
 			}

@@ -27,7 +27,7 @@ export default function HomePage() {
 	}
 
 	return (
-		<MainLayout title={"Doker Genius"} pageDescription={"Dockerfiles Generator"}>
+		<MainLayout title={"Doker Genius"} pageDescription={"Dockerfile validator and generator"}>
 			<div className='flex gap-6 w-full'>
 				<section className='w-2/6'>
 					<div className='p-4 rounded-md  dark:bg-custom-dark-900 border border-custom-dark-800 h-fit mb-6'>

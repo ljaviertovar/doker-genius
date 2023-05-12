@@ -12,9 +12,8 @@ export default function Header() {
 			<RRSS />
 			<div className='mt-4'>
 				<h1 className='text-5xl font-bold mb-0 font-mono text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 flex items-center w-full justify-center'>
-					Doker
-					<DockerGeniusIcon fill='#2563eb' width='2rem' />
-					Genius
+					<DockerGeniusIcon fill='#4952EC' width='2rem' className='mr-1' />
+					okerGenius
 				</h1>
 				<h2 className='text-2xl  text-custom-dark-50 mb-0'>Dockerfile validator and generator</h2>
 			</div>

@@ -16,7 +16,7 @@ export default function HistoryList({ setPrompt }: Props) {
 	return (
 		<div className='p-4 rounded-md  dark:bg-custom-dark-900 border border-custom-dark-800 h-fit'>
 			<h3 className='font-semibold dark:text-custom-dark-50 mb-4'>My Prompts:</h3>
-			<div className='h-48 overflow-auto'>
+			<div className='h-44 overflow-auto'>
 				{localPrompts.map(p => (
 					<div
 						key={p}

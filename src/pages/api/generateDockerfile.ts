@@ -1,8 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next"
-import axios from "axios"
+import { Configuration, ChatCompletionRequestMessageRoleEnum, OpenAIApi } from "openai"
 
-import { generateMessages } from "@/data/prompts"
 import { validateInputPrompt } from "@/utils/validations"
+import { EXAMPLE_MESSAGES, SYSTEM_MESSAGE } from "@/data/prompts"
+import { getDockerfileText, getInnerText } from "@/utils/texts"
 
 type Data =
 	| {
@@ -24,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	}
 
 	if (!validateInputPrompt(prompt)) {
-		res.status(200).json({
+		return res.status(200).json({
 			message: "Invalid Prompt",
 			dockerfile:
 				"I'm sorry, I'm not sure what you mean. Could you please provide more context or clarify your request?",
@@ -32,34 +33,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 	}
 
 	try {
-		const { data } = await axios({
-			method: "POST",
-			url: "https://api.openai.com/v1/chat/completions",
-			headers: {
-				Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
-				"Content-Type": "application/json",
-			},
-			data: {
-				max_tokens: 400,
-				temperature: 0.5,
-				model: "gpt-3.5-turbo",
-				messages: [
-					...generateMessages,
-					{
-						role: "user",
-						content: prompt.trim(),
-					},
-				],
-			},
+		const configuration = new Configuration({ apiKey: process.env.OPENAI_API_KEY })
+		const openai = new OpenAIApi(configuration)
+
+		const completion = await openai.createChatCompletion({
+			model: "gpt-3.5-turbo",
+			messages: [
+				SYSTEM_MESSAGE,
+				...EXAMPLE_MESSAGES,
+				{
+					role: ChatCompletionRequestMessageRoleEnum.User,
+					content: prompt,
+				},
+			],
 		})
 
-		const choices = data.choices
-		let message = choices[0].message.content
+		const resp = completion.data.choices[0].message?.content ?? ""
 
-		res.status(200).json({
-			message: "ok",
-			dockerfile: message,
-		})
+		let dockerfile = getInnerText(resp, "```bash", "```")
+		dockerfile = dockerfile.replaceAll("```bash", "").replaceAll("```", "")
+		return res.status(200).json({ dockerfile, message: "ok" })
 	} catch (err) {
 		console.log(err)
 		return res.status(500).json({ message: "Error generating Dockerfile" })

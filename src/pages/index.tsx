@@ -10,6 +10,7 @@ import useDockerfileGenerator from "../hooks/useDockerfileGenerator"
 
 import { dockerfilePlaceholder, inputPlaceholder } from "@/data/placeholders"
 import HistoryList from "@/components/HistoryList"
+import CodeDockerignore from "@/components/dockerComponents/CodeDockerignore"
 
 export default function HomePage() {
 	const [prompt, setPrompt] = useState("")
@@ -58,11 +59,11 @@ export default function HomePage() {
 					<HistoryList setPrompt={setPrompt} />
 				</section>
 
-				<section className='w-4/6 dark:bg-custom-dark-900 p-4 rounded-md border border-custom-dark-800 relative h-fit'>
-					<div className='absolute right-8 top-8'>
-						<CopyButton textCode={(dockerfile as string) ?? dockerfilePlaceholder} />
-					</div>
+				<section className='w-4/6'>
 					<CodeDockerFile textCode={(dockerfile as string) ?? dockerfilePlaceholder} />
+					<div className='flex justify-between flex-1 mt-6'>
+						<CodeDockerignore textCode='' />
+					</div>
 				</section>
 			</div>
 		</MainLayout>

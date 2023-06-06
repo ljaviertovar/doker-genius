@@ -8,12 +8,12 @@ interface Props {
 	textCode: string
 }
 
-export default function CodeDockerFile({ textCode }: Props) {
+export default function CodeDockerignore({ textCode }: Props) {
 	return (
 		<div className='p-4 rounded-md  dark:bg-custom-dark-900 border border-custom-dark-800 h-fit'>
 			<div className='flex justify-between'>
 				<h3 className='font-semibold dark:text-custom-dark-50 mb-4'>
-					<pre>.dockerfile</pre>
+					<pre>.dockerignore</pre>
 				</h3>
 				<div className=''>
 					<CopyButton textCode={textCode ?? dockerfilePlaceholder} />
